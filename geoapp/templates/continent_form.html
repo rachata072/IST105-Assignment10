@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geo Weather Adventure - Select Continent</title>
+</head>
+<body>
+    <h1>Select a Continent</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Search</button>
+    </form>
+    <a href="{% url 'history' %}">View Search History</a>
+</body>
+</html> 

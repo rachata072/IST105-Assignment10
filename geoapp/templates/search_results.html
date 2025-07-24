@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geo Weather Adventure - Results</title>
+</head>
+<body>
+    <h1>Weather in 5 Random Countries of {{ continent }}</h1>
+    {% if error %}
+        <p>{{ error }}</p>
+    {% else %}
+        <table border="1">
+            <tr>
+                <th>Country</th>
+                <th>Capital</th>
+                <th>Population</th>
+                <th>Latitude/Longitude</th>
+                <th>Temperature (°C)</th>
+                <th>Weather</th>
+            </tr>
+            {% for r in results %}
+            <tr>
+                <td>{{ r.country }}</td>
+                <td>{{ r.capital }}</td>
+                <td>{{ r.population }}</td>
+                <td>{{ r.latlng }}</td>
+                <td>{{ r.temperature }}</td>
+                <td>{{ r.weather }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+    <a href="/">Back to Continent Selection</a>
+    <br>
+    <a href="{% url 'history' %}">View Search History</a>
+</body>
+</html> 

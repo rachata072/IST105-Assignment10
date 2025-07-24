@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geo Weather Adventure - Search History</title>
+</head>
+<body>
+    <h1>Search History</h1>
+    {% if searches %}
+        {% for search in searches %}
+            <h2>Continent: {{ search.continent }}</h2>
+            <table border="1">
+                <tr>
+                    <th>Country</th>
+                    <th>Capital</th>
+                    <th>Population</th>
+                    <th>Latitude/Longitude</th>
+                    <th>Temperature (°C)</th>
+                    <th>Weather</th>
+                </tr>
+                {% for r in search.results %}
+                <tr>
+                    <td>{{ r.country }}</td>
+                    <td>{{ r.capital }}</td>
+                    <td>{{ r.population }}</td>
+                    <td>{{ r.latlng }}</td>
+                    <td>{{ r.temperature }}</td>
+                    <td>{{ r.weather }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% endfor %}
+    {% else %}
+        <p>No search history found.</p>
+    {% endif %}
+    <a href="/">Back to Continent Selection</a>
+</body>
+</html> 
